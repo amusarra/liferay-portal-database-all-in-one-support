@@ -14,7 +14,14 @@ The Liferay 7 CE no more support OOTB (Out Of The Box):
 
 This project add support to the Oracle database. Liferay has performed refactorting the code so that it is possible and easy to add support for databases no longer supported OOTB
 
-## 1. Build project
+**Attention update:** The driver works with the release GA1, GA2 and GA3 of the Liferay 7 CE.
+
+In the following video, I will guide you step-by-step instructions on how to add support for Oracle Database to Liferay 7 Community Edition in the bundled version of **Wildfly**.
+
+[![Liferay 7 Wildfly: How to add support for Oracle DB ](https://img.youtube.com/vi/7fojCjko7Ac/0.jpg)](https://www.youtube.com/watch?v=7fojCjko7Ac)
+
+
+## 1. Build project from source
 Requirements for build project
 1. Sun/Oracle JDK 1.8
 2. Maven 3.x (for build project)
@@ -23,7 +30,7 @@ The driver that adds support for Oracle, SQLServer and DB2 database is a jar (**
 
 To generate the all in one driver just follow the instructions below.
 
-You can download the binary jar [liferay-portal-database-all-in-one-support](https://search.maven.org/#search%7Cga%7C1%7Cit.dontesta), by doing so you can avoid doing the build.
+You can download the binary jar from Maven Central Repository [liferay-portal-database-all-in-one-support](https://search.maven.org/#search%7Cga%7C1%7Cit.dontesta), by doing so you can avoid doing the build.
 
 ```
 $ git clone https://github.com/amusarra/liferay-portal-database-all-in-one-support.git
@@ -39,7 +46,7 @@ liferay-portal-database-all-in-one-support-${version}.jar
 
 ## 2. Configure Liferay
 
-Below you can see the portal-ext.properties
+Below you can see the portal-ext.properties. In the sample file are shown configurations for Oracle, SQL Server, and DB2.
 
 ```
 ##
