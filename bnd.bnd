@@ -1,0 +1,15 @@
+Bundle-Name: Liferay Portal Database All In One Support
+Bundle-SymbolicName: it.dontesta.labs.liferay.portal.dao.db
+Bundle-Description: This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7 CE
+Bundle-Version: 1.0.0
+Bundle-Copyright: (c) 2017 Antonio Musarra's Blog
+Bundle-Vendor: Antonio Musarra's Blog
+Bundle-License: https://www.dontesta.it/liferay-db/license/v1.0
+Bundle-DocURL: https://www.dontesta.it/liferay-db/
+Require-Capability: \
+    osgi.ee; filter:="(&(osgi.ee=JavaSE)(version=1.6))",\
+    osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"
+Provide-Capability: \
+    osgi.serviceloader;osgi.serviceloader=com.liferay.portal.kernel.dao.db.DBFactory
+Export-Package: \
+	it.dontesta.labs.liferay.portal.dao.db
