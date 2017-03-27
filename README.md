@@ -17,13 +17,13 @@ This project add support to the Oracle database. Liferay has performed refactort
 ## 1. Build project
 Requirements for build project
 1. Sun/Oracle JDK 1.8
-2. Maven 3.x (for build project) or Gradle 2.x
+2. Maven 3.x (for build project)
 
 The driver that adds support for Oracle, SQLServer and DB2 database is a jar (**liferay-portal-database-all-in-one-support-${version}.jar**) which then will be installed in ROOT/WEB-INF/lib (for apache tomcat).
 
 To generate the all in one driver just follow the instructions below.
 
-You can download the binary jar [liferay-portal-oracledb-support-1.0-SNAPSHOT.jar](https://github.com/amusarra/liferay-portal-oracledb-support/releases/download/v1.0/liferay-portal-oracledb-support-1.0-SNAPSHOT.jar), by doing so you can avoid doing the build.
+You can download the binary jar [liferay-portal-database-all-in-one-support](https://search.maven.org/#search%7Cga%7C1%7Cit.dontesta), by doing so you can avoid doing the build.
 
 ```
 $ git clone https://github.com/amusarra/liferay-portal-database-all-in-one-support.git
@@ -37,7 +37,7 @@ the build process create the jar inside the (maven) target directory:
 liferay-portal-database-all-in-one-support-${version}.jar
 ```
 
-## 2. Configure
+## 2. Configure Liferay
 
 Below you can see the portal-ext.properties
 
@@ -66,10 +66,10 @@ Below you can see the portal-ext.properties
     #
     # DB2
     #
-	  # jdbc.default.driverClassName=com.ibm.db2.jcc.DB2Driver
+    # jdbc.default.driverClassName=com.ibm.db2.jcc.DB2Driver
     # jdbc.default.url=jdbc:db2://db2.vm.local:50001/lportal:deferPrepares=false;fullyMaterializeInputStreams=true;fullyMaterializeLobData=true;progresssiveLocators=2;progressiveStreaming=2;
     # jdbc.default.username=db2inst1
-	  # jdbc.default.password=system
+    # jdbc.default.password=system
 
     #
     # SQL Server
