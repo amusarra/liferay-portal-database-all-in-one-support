@@ -4,9 +4,6 @@
 
 
 # Welcome to Liferay CE 7.0 Database All In One Support
-
-[![Join the chat at https://gitter.im/amusarra/liferay-portal-oracledb-support](https://badges.gitter.im/amusarra/liferay-portal-database-all-in-one-support.svg)](https://gitter.im/amusarra/liferay-portal-database-all-in-one-support?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Those who follow Liferay is aware of the fact that the Community Edition version 7 of Liferay, were eliminated quite a bit of components App Server, Database & Clustering Support. For more detail information you can read the blog post by [Bryan Cheung]( https://www.liferay.com/it/web/bryan.cheung/blog/-/blogs/liferay-portal-7-ce-app-server-database-clustering-support) published on April 7, 2016.
 
 The Liferay 7 CE no more support OOTB (Out Of The Box):
