@@ -14,7 +14,7 @@ The Liferay 7 CE no more support OOTB (Out Of The Box):
 
 This project add support to the Oracle, SQL Server and IBM DB2 database. Liferay has performed refactorting the code so that it is possible and easy to add support for databases no longer supported OOTB
 
-**Attention update:** The driver works with the release GA1, GA2, GA3 and GA4 of the Liferay 7 CE.
+**Attention update:** The driver works with the release GA1, GA2, GA3, GA4, GA5 and GA6 of the Liferay 7 CE.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
