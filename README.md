@@ -19,7 +19,7 @@ This project add support to the Oracle, SQL Server and IBM DB2 database.
 Liferay has performed refactorting the code so that it is possible and easy 
 to add support for databases no longer supported OOTB
 
-**Attention update:** The driver works with the release GA2 of the Liferay 7.1 CE.
+**Attention update:** The driver works with the release GA3 of the Liferay 7.1 CE.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 

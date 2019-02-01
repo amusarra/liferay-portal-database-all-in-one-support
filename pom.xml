@@ -11,7 +11,7 @@
   <inceptionYear>2019</inceptionYear>
   <licenses>
     <license>
-      <name>GNU General Public License (GPLv2.1)</name>
+      <name>GNU Lesser General Public License, version 2.1 (LGPLv2.1)</name>
       <url>http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</url>
       <distribution>manual</distribution>
     </license>
@@ -32,9 +32,9 @@
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <liferay.portal.impl.version>3.22.20</liferay.portal.impl.version>
-    <liferay.portal.kernel.version>3.39.2</liferay.portal.kernel.version>
-    <liferay.petra.lang>2.0.7</liferay.petra.lang>
+    <liferay.portal.impl.version>3.26.4</liferay.portal.impl.version>
+    <liferay.portal.kernel.version>3.46.2</liferay.portal.kernel.version>
+    <liferay.petra.lang>2.0.8</liferay.petra.lang>
   </properties>
   <developers>
     <developer>
