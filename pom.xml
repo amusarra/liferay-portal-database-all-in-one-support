@@ -4,7 +4,7 @@
   <groupId>it.dontesta.labs.liferay.portal.db</groupId>
   <artifactId>liferay-portal-database-all-in-one-support</artifactId>
   <packaging>jar</packaging>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
   <name>Liferay Portal Database All In One Support</name>
   <description>This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7.1 CE</description>
   <url>https://www.dontesta.it</url>
@@ -179,7 +179,7 @@
     <connection>scm:git:git@github.com:amusarra/liferay-portal-database-all-in-one-support.git</connection>
     <url>scm:git:git@github.com:amusarra/liferay-portal-database-all-in-one-support.git</url>
     <developerConnection>scm:git:git@github.com:amusarra/liferay-portal-database-all-in-one-support.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>liferay-portal-database-all-in-one-support-1.1.2</tag>
   </scm>
   <issueManagement>
     <url>https://github.com/amusarra/liferay-portal-database-all-in-one-support/issues</url>
