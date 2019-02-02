@@ -1,7 +1,7 @@
 Bundle-Name: Liferay Portal Database All In One Support
 Bundle-SymbolicName: it.dontesta.labs.liferay.portal.dao.db
 Bundle-Description: This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7.1 CE
-Bundle-Version: 1.1.1
+Bundle-Version: 1.1.2
 Bundle-Copyright: (c) 2019 Antonio Musarra's Blog
 Bundle-Vendor: Antonio Musarra's Blog
 Bundle-License: https://www.dontesta.it/liferay-db/license/v1.0
