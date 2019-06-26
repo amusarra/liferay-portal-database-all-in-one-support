@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <version>1.1.3-SNAPSHOT</version>
   <name>Liferay Portal Database All In One Support</name>
-  <description>This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7.1 CE</description>
+  <description>This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7,7.1 and 7.2 CE</description>
   <url>https://www.dontesta.it</url>
   <inceptionYear>2019</inceptionYear>
   <licenses>
@@ -32,9 +32,9 @@
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <liferay.portal.impl.version>3.26.4</liferay.portal.impl.version>
-    <liferay.portal.kernel.version>3.46.2</liferay.portal.kernel.version>
-    <liferay.petra.lang>2.0.8</liferay.petra.lang>
+    <liferay.portal.impl.version>4.3.0</liferay.portal.impl.version>
+    <liferay.portal.kernel.version>4.13.1</liferay.portal.kernel.version>
+    <liferay.petra.lang>3.0.0</liferay.petra.lang>
   </properties>
   <developers>
     <developer>

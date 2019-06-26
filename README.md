@@ -3,7 +3,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/antonio_musarra.svg?style=social&label=%40antonio_musarra%20on%20Twitter&style=plastic)](https://twitter.com/antonio_musarra)
 
 
-# Welcome to Liferay Community Edition 7.1 Database All In One Support
+# Welcome to Liferay Community Edition 7, 7.1 and 7.2 Database All In One Support
 Those who follow Liferay is aware of the fact that the Community Edition 
 version 7 of Liferay, were eliminated quite a bit of components App Server, 
 Database & Clustering Support. For more detail information you can read the 
@@ -19,7 +19,8 @@ This project add support to the Oracle, SQL Server and IBM DB2 database.
 Liferay has performed refactorting the code so that it is possible and easy 
 to add support for databases no longer supported OOTB
 
-**Attention update:** The driver works with the release GA3 of the Liferay 7.1 CE.
+**Attention update:** The last version (1.1.3) of the driver works with the 
+Liferay 7.2 CE GA1.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
@@ -131,4 +132,20 @@ configurations sample for Oracle, SQL Server, and DB2.
     # jdbc.default.username=liferay
     # jdbc.default.password=liferay12345
     # jdbc.default.url=jdbc:sqlserver://sqlserverdb.vm.local;databaseName=liferayce7
+```
+
+You could also configure database access as a JNDI resource and specify the 
+resource name in configuration.
+
+```bash
+##
+## JDBC
+##
+
+	#
+    # Set the JNDI name to lookup the JDBC data source. If none is set,
+    # then the portal will attempt to create the JDBC data source based on the
+    # properties prefixed with "jdbc.default.".
+    #
+    jdbc.default.jndi.name=java:jdbc/LiferayPool
 ```
