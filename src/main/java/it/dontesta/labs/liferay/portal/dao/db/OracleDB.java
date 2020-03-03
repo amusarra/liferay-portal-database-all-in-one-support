@@ -19,6 +19,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -283,6 +284,11 @@ public class OracleDB extends BaseDB {
 		return sb.toString();
 	}
 
+	@Override
+	protected int[] getSQLTypes() {
+		return _SQL_TYPES;
+	}
+	
 	private void _convertToOracleCSV(String line, StringBundler sb) {
 		int x = line.indexOf("values (");
 		int y = line.lastIndexOf(");");
@@ -322,10 +328,15 @@ public class OracleDB extends BaseDB {
 		" number(30,0)", " number(30,0)", " varchar2(4000)", " clob",
 		" varchar2", "", "commit"
 	};
+	
+	private static final int[] _SQL_TYPES = {
+			Types.BLOB, Types.BLOB, Types.NUMERIC, Types.TIMESTAMP, Types.NUMERIC,
+			Types.NUMERIC, Types.NUMERIC, Types.VARCHAR, Types.CLOB, Types.VARCHAR
+	};
 
 	private static final boolean _SUPPORTS_INLINE_DISTINCT = false;
 
 	private static Pattern _varcharPattern = Pattern.compile(
 		"VARCHAR\\((\\d+)\\)");
-
+	
 }
