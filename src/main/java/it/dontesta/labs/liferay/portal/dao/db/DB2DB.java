@@ -39,6 +39,7 @@ import com.liferay.portal.kernel.util.StringUtil;
  * @author Ganesh Ram
  * @author Bruno Farache
  * @author Antonio Musarra
+ * @author Javier Alpanez
  */
 public class DB2DB extends BaseDB {
 

@@ -39,6 +39,7 @@ import com.liferay.portal.kernel.util.StringUtil;
  * @author Sandeep Soni
  * @author Ganesh Ram
  * @author Antonio Musarra
+ * @author Javier Alpanez
  */
 public class SQLServerDB extends BaseDB {
 
