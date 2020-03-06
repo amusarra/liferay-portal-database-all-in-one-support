@@ -44,8 +44,8 @@ system without changing the source. It includes interfaces, classes or methods
 that the user extends or implements in order to obtain a certain functionality.
 
 In short we must:
-* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java). Implementation class inside this project is **OracleDBFactory.java**
-* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java) for Oracle DB. Implementation class inside this project is **OracleDB.java**
+* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java)
+* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java)
 
 The following code shows how service providers are loaded via SPI.
 
@@ -104,7 +104,7 @@ Figure 2 - Class diagram of the DB2DB driver
 <img src="docs/images/ClassDiagram_OracleDB_1.png" alt="ClassDiagram_OracleDB_1" style="zoom:67%;" />
 
 
-Figure 2 - Class diagram of the OracleDB driver
+Figure 3 - Class diagram of the OracleDB driver
 
 
 
@@ -194,7 +194,7 @@ resource name in configuration.
 		# then the portal will attempt to create the JDBC data source based on the
 		# properties prefixed with "jdbc.default.".
 		#
-    jdbc.default.jndi.name=java:jdbc/LiferayPool
+		jdbc.default.jndi.name=java:jdbc/LiferayPool
 ```
 
 Source Code 3 - Configure the JDBC connection via JNDI
