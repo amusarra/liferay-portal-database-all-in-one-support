@@ -24,12 +24,12 @@ import java.sql.Types;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.liferay.petra.string.CharPool;
 import com.liferay.portal.dao.db.BaseDB;
 import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
-import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -49,16 +49,23 @@ public class DB2DB extends BaseDB {
 
 	@Override
 	public String buildSQL(String template) throws IOException {
-		template = convertTimestamp(template);
-		template = replaceTemplate(template, getTemplate());
+		template = replaceTemplate(template);
 
 		template = reword(template);
-		template = removeLongInserts(template);
-		template = removeNull(template);
 		template = StringUtil.replace(template, "\\'", "''");
 		template = StringUtil.replace(template, "\\n", "'||CHR(10)||'");
 
 		return template;
+	}
+
+	@Override
+	public String getPopulateSQL( String s, String s1 ) {
+		return null;
+	}
+
+	@Override
+	public String getRecreateSQL( String s ) {
+		return null;
 	}
 
 	@Override
@@ -102,51 +109,15 @@ public class DB2DB extends BaseDB {
 	}
 
 	@Override
-	protected String buildCreateFileContent(
-			String sqlDir, String databaseName, int population)
-		throws IOException {
-
-		String suffix = getSuffix(population);
-
-		StringBundler sb = new StringBundler(15);
-
-		sb.append("drop database ");
-		sb.append(databaseName);
-		sb.append(";\n");
-		sb.append("create database ");
-		sb.append(databaseName);
-		sb.append(" pagesize 32768 temporary tablespace managed by automatic ");
-		sb.append("storage;\n");
-
-		if (population != BARE) {
-			sb.append("connect to ");
-			sb.append(databaseName);
-			sb.append(";\n");
-			sb.append(getCreateTablesContent(sqlDir, suffix));
-			sb.append("\n\n");
-			sb.append(readFile(sqlDir + "/indexes/indexes-db2.sql"));
-			sb.append("\n\n");
-			sb.append(readFile(sqlDir + "/sequences/sequences-db2.sql"));
-		}
-
-		return sb.toString();
-	}
-
-	@Override
-	protected String getServerName() {
-		return "db2";
-	}
-
-	@Override
 	protected int[] getSQLTypes() {
 		return _SQL_TYPES;
 	}
-	
+
 	@Override
 	protected String[] getTemplate() {
 		return _DB2;
 	}
-	
+
 	protected boolean isRequiresReorgTable(Connection con, String tableName)
 		throws SQLException {
 
@@ -281,7 +252,7 @@ public class DB2DB extends BaseDB {
 		" bigint", " varchar(4000)", " clob", " varchar",
 		" generated always as identity", "commit"
 	};
-	
+
 	private static final int[] _SQL_TYPES = {
 			Types.BLOB, Types.BLOB, Types.SMALLINT, Types.TIMESTAMP, Types.DOUBLE,
 			Types.INTEGER, Types.BIGINT, Types.VARCHAR, Types.CLOB, Types.VARCHAR

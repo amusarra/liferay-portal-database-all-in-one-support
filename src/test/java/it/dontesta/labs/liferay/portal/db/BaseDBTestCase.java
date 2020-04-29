@@ -1,10 +1,11 @@
 package it.dontesta.labs.liferay.portal.db;
 
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +17,7 @@ import org.junit.Test;
 public abstract class BaseDBTestCase {
 
 	@Test
-	public void testReplaceTemplate() throws IOException {
+	public void testReplaceTemplate() throws IOException, SQLException {
 		StringBundler sb = new StringBundler(5);
 
 		sb.append("select * from SomeTable where someColumn1 = ");
@@ -31,7 +32,7 @@ public abstract class BaseDBTestCase {
 			buildSQL(_BOOLEAN_PATTERN_QUERY));
 	}
 
-	protected String buildSQL(String query) throws IOException {
+	protected String buildSQL(String query) throws IOException, SQLException {
 		return _db.buildSQL(query);
 	}
 

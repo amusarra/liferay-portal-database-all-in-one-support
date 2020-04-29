@@ -58,74 +58,6 @@ public class OracleDB extends BaseDB {
 	}
 
 	@Override
-	public void buildSQLFile(String sqlDir, String fileName)
-		throws IOException {
-
-		String oracle = buildTemplate(sqlDir, fileName);
-
-		oracle = _preBuildSQL(oracle);
-
-		UnsyncBufferedReader unsyncBufferedReader = new UnsyncBufferedReader(
-			new UnsyncStringReader(oracle));
-
-		StringBundler imageSB = new StringBundler();
-		StringBundler journalArticleSB = new StringBundler();
-		StringBundler journalStructureSB = new StringBundler();
-		StringBundler journalTemplateSB = new StringBundler();
-
-		String line = null;
-
-		while ((line = unsyncBufferedReader.readLine()) != null) {
-			if (line.startsWith("insert into Image")) {
-				_convertToOracleCSV(line, imageSB);
-			}
-			else if (line.startsWith("insert into JournalArticle (")) {
-				_convertToOracleCSV(line, journalArticleSB);
-			}
-			else if (line.startsWith("insert into JournalStructure (")) {
-				_convertToOracleCSV(line, journalStructureSB);
-			}
-			else if (line.startsWith("insert into JournalTemplate (")) {
-				_convertToOracleCSV(line, journalTemplateSB);
-			}
-		}
-
-		unsyncBufferedReader.close();
-
-		if (imageSB.length() > 0) {
-			FileUtil.write(
-				sqlDir + "/" + fileName + "/" + fileName + "-oracle-image.csv",
-				imageSB.toString());
-		}
-
-		if (journalArticleSB.length() > 0) {
-			FileUtil.write(
-				sqlDir + "/" + fileName + "/" + fileName +
-					"-oracle-journalarticle.csv",
-				journalArticleSB.toString());
-		}
-
-		if (journalStructureSB.length() > 0) {
-			FileUtil.write(
-				sqlDir + "/" + fileName + "/" + fileName +
-					"-oracle-journalstructure.csv",
-				journalStructureSB.toString());
-		}
-
-		if (journalTemplateSB.length() > 0) {
-			FileUtil.write(
-				sqlDir + "/" + fileName + "/" + fileName +
-					"-oracle-journaltemplate.csv",
-				journalTemplateSB.toString());
-		}
-
-		oracle = _postBuildSQL(oracle);
-
-		FileUtil.write(
-			sqlDir + "/" + fileName + "/" + fileName + "-oracle.sql", oracle);
-	}
-
-	@Override
 	public List<Index> getIndexes(Connection con) throws SQLException {
 		List<Index> indexes = new ArrayList<Index>();
 
@@ -167,74 +99,23 @@ public class OracleDB extends BaseDB {
 	}
 
 	@Override
+	public String getPopulateSQL( String s, String s1 ) {
+		return null;
+	}
+
+	@Override
+	public String getRecreateSQL( String s ) {
+		return null;
+	}
+
+	@Override
 	public boolean isSupportsInlineDistinct() {
 		return _SUPPORTS_INLINE_DISTINCT;
 	}
 
 	@Override
-	protected String buildCreateFileContent(
-			String sqlDir, String databaseName, int population)
-		throws IOException {
-
-		String suffix = getSuffix(population);
-
-		StringBundler sb = new StringBundler(13);
-
-		sb.append("drop user &1 cascade;\n");
-		sb.append("create user &1 identified by &2;\n");
-		sb.append("grant connect,resource to &1;\n");
-
-		if (population != BARE) {
-			sb.append("connect &1/&2;\n");
-			sb.append("set define off;\n");
-			sb.append("\n");
-			sb.append(getCreateTablesContent(sqlDir, suffix));
-			sb.append("\n\n");
-			sb.append(readFile(sqlDir + "/indexes/indexes-oracle.sql"));
-			sb.append("\n\n");
-			sb.append(readFile(sqlDir + "/sequences/sequences-oracle.sql"));
-			sb.append("\n");
-		}
-
-		sb.append("quit");
-
-		return sb.toString();
-	}
-
-	@Override
-	protected String getServerName() {
-		return "oracle";
-	}
-
-	@Override
 	protected String[] getTemplate() {
 		return _ORACLE;
-	}
-
-	@Override
-	protected String replaceTemplate(String template, String[] actual) {
-
-		// LPS-12048
-
-		Matcher matcher = _varcharPattern.matcher(template);
-
-		StringBuffer sb = new StringBuffer();
-
-		while (matcher.find()) {
-			int size = GetterUtil.getInteger(matcher.group(1));
-
-			if (size > 4000) {
-				size = 4000;
-			}
-
-			matcher.appendReplacement(sb, "VARCHAR2(" + size + " CHAR)");
-		}
-
-		matcher.appendTail(sb);
-
-		template = sb.toString();
-
-		return super.replaceTemplate(template, actual);
 	}
 
 	@Override
@@ -289,7 +170,7 @@ public class OracleDB extends BaseDB {
 	protected int[] getSQLTypes() {
 		return _SQL_TYPES;
 	}
-	
+
 	private void _convertToOracleCSV(String line, StringBundler sb) {
 		int x = line.indexOf("values (");
 		int y = line.lastIndexOf(");");
@@ -303,15 +184,14 @@ public class OracleDB extends BaseDB {
 	}
 
 	private String _postBuildSQL(String template) throws IOException {
-		template = removeLongInserts(template);
+		//template = removeLongInserts(template);
 		template = StringUtil.replace(template, "\\n", "'||CHR(10)||'");
 
 		return template;
 	}
 
 	private String _preBuildSQL(String template) throws IOException {
-		template = convertTimestamp(template);
-		template = replaceTemplate(template, getTemplate());
+		template = replaceTemplate(template);
 
 		template = reword(template);
 		template = StringUtil.replace(
@@ -329,7 +209,7 @@ public class OracleDB extends BaseDB {
 		" number(30,0)", " number(30,0)", " varchar2(4000)", " clob",
 		" varchar2", "", "commit"
 	};
-	
+
 	private static final int[] _SQL_TYPES = {
 			Types.BLOB, Types.BLOB, Types.NUMERIC, Types.TIMESTAMP, Types.NUMERIC,
 			Types.NUMERIC, Types.NUMERIC, Types.VARCHAR, Types.CLOB, Types.VARCHAR
@@ -339,5 +219,5 @@ public class OracleDB extends BaseDB {
 
 	private static Pattern _varcharPattern = Pattern.compile(
 		"VARCHAR\\((\\d+)\\)");
-	
+
 }
