@@ -50,11 +50,6 @@
         <role>Liferay Expert</role>
       </roles>
     </developer>
-    <developer>
-      <id>gabortothp92</id>
-      <name>Gabor Toth</name>
-      <email>gabor.tot@p92.hu</email>
-    </developer>
   </developers>
   <dependencies>
     <dependency>
