@@ -2,7 +2,7 @@ package it.dontesta.labs.liferay.portal.db;
 
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.petra.string.StringPool;
 
 import java.io.IOException;
 

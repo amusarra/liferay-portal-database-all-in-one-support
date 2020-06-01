@@ -1,4 +1,4 @@
-# Liferay Portal CE 7, 7.1 and 7.2 Database All In One Support
+# Liferay Portal CE 7, 7.1, 7.2 and 7.3 Database All In One Support
 [![Antonio Musarra's Blog](https://img.shields.io/badge/maintainer-Antonio_Musarra's_Blog-purple.svg?colorB=6e60cc)](https://www.dontesta.it) 
 [![Twitter Follow](https://img.shields.io/twitter/follow/antonio_musarra.svg?style=social&label=%40antonio_musarra%20on%20Twitter&style=plastic)](https://twitter.com/antonio_musarra) ![travis ci](https://travis-ci.org/amusarra/liferay-portal-database-all-in-one-support.svg?branch=master)
 
@@ -22,8 +22,8 @@ This project add support to the [Oracle Database](https://www.oracle.com/databas
 Liferay has performed refactorting the code so that it is possible and easy 
 to add support for databases no longer supported OOTB (out-of-the-box)
 
-**Attention update:** The last version (1.1.4) of the driver works with the 
-Liferay 7.2.1 CE GA2.
+**Attention update:** The last version (1.2.0) of the driver works with the 
+Liferay 7.3.0 CE GA1.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
@@ -44,8 +44,8 @@ system without changing the source. It includes interfaces, classes or methods
 that the user extends or implements in order to obtain a certain functionality.
 
 In short we must:
-* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java)
-* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java)
+* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java). Implementation class inside this project is **OracleDBFactory.java**
+* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java) for Oracle DB. Implementation class inside this project is **OracleDB.java**
 
 The following code shows how service providers are loaded via SPI.
 
@@ -188,13 +188,12 @@ resource name in configuration.
 ##
 ## JDBC
 ##
-
-		#
-		# Set the JNDI name to lookup the JDBC data source. If none is set,
-		# then the portal will attempt to create the JDBC data source based on the
-		# properties prefixed with "jdbc.default.".
-		#
-		jdbc.default.jndi.name=java:jdbc/LiferayPool
+    #
+    # Set the JNDI name to lookup the JDBC data source. If none is set,
+    # then the portal will attempt to create the JDBC data source based on the
+    # properties prefixed with "jdbc.default."
+    #
+    jdbc.default.jndi.name=java:jdbc/LiferayPool
 ```
 
 Source Code 3 - Configure the JDBC connection via JNDI

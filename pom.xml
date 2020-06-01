@@ -4,11 +4,11 @@
   <groupId>it.dontesta.labs.liferay.portal.db</groupId>
   <artifactId>liferay-portal-database-all-in-one-support</artifactId>
   <packaging>jar</packaging>
-  <version>1.1.5-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
   <name>Liferay Portal Database All In One Support</name>
-  <description>This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7,7.1 and 7.2 CE</description>
+  <description>This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7,7.1,7.2 and 7.3 CE</description>
   <url>https://www.dontesta.it</url>
-  <inceptionYear>2019</inceptionYear>
+  <inceptionYear>2020</inceptionYear>
   <licenses>
     <license>
       <name>GNU Lesser General Public License, version 2.1 (LGPLv2.1)</name>
@@ -32,9 +32,10 @@
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <liferay.portal.impl.version>4.12.11</liferay.portal.impl.version>
-    <liferay.portal.kernel.version>4.35.3</liferay.portal.kernel.version>
-    <liferay.petra.lang>3.0.0</liferay.petra.lang>
+    <liferay.portal.impl.version>5.1.6</liferay.portal.impl.version>
+    <liferay.portal.kernel.version>5.4.0</liferay.portal.kernel.version>
+    <liferay.petra.lang.version>4.0.1</liferay.petra.lang.version>
+    <liferay.petra.string.version>4.0.1</liferay.petra.string.version>
   </properties>
   <developers>
     <developer>
@@ -72,7 +73,13 @@
     <dependency>
       <groupId>com.liferay</groupId>
       <artifactId>com.liferay.petra.lang</artifactId>
-      <version>${liferay.petra.lang}</version>
+      <version>${liferay.petra.lang.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.liferay</groupId>
+      <artifactId>com.liferay.petra.string</artifactId>
+      <version>${liferay.petra.string.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
