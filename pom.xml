@@ -180,7 +180,23 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
-    </plugins>
+
+      <!-- Liferay Source Formatter Plugin https://help.liferay.com/hc/en-us/articles/360017901972-Source-Formatter-Plugin -->
+      <plugin>
+        <groupId>com.liferay</groupId>
+        <artifactId>com.liferay.source.formatter</artifactId>
+        <version>1.0.885</version>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>format</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+        </configuration>
+      </plugin>    </plugins>
   </build>
   <scm>
     <connection>scm:git:git@github.com:amusarra/liferay-portal-database-all-in-one-support.git</connection>
