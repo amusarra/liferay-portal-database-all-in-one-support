@@ -19,8 +19,8 @@ Liferay has performed refactorting the code so that it is possible and easy
 to add support for databases no longer supported OOTB (out-of-the-box)
 
 **Attention update**
-1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2.
-2. From version 1.2.1 removed driver for DB2 Database. 
+1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2 and 7.3.2 GA3.
+2. From version 1.2.1 **removed driver for DB2 Database**.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
