@@ -97,6 +97,9 @@ public class SQLServerDB extends BaseDB {
 		return indexes;
 	}
 
+	/**
+	 * @see com.liferay.portal.verify.VerifyUUID
+	 */
 	@Override
 	public String getNewUuidFunctionName() {
 
@@ -107,6 +110,9 @@ public class SQLServerDB extends BaseDB {
 		return "lower(NEWID())";
 	}
 
+	/**
+	 * @see com.liferay.portal.tools.DBBuilder
+	 */
 	@Override
 	public String getPopulateSQL(String databaseName, String sqlContent) {
 		StringBundler populateSqlSB = new StringBundler(4);
@@ -119,6 +125,9 @@ public class SQLServerDB extends BaseDB {
 		return populateSqlSB.toString();
 	}
 
+	/**
+	 * @see com.liferay.portal.tools.DBBuilder
+	 */
 	@Override
 	public String getRecreateSQL(String databaseName) {
 		StringBundler recreateSqlSB = new StringBundler(9);
@@ -136,6 +145,9 @@ public class SQLServerDB extends BaseDB {
 		return recreateSqlSB.toString();
 	}
 
+	/**
+	 * @see com.liferay.portal.verify.VerifyUUID
+	 */
 	@Override
 	public boolean isSupportsNewUuidFunction() {
 		return _SUPPORTS_NEW_UUID_FUNCTION;

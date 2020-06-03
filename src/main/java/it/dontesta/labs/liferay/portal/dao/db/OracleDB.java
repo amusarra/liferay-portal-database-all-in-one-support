@@ -94,6 +94,9 @@ public class OracleDB extends BaseDB {
 		return indexes;
 	}
 
+	/**
+	 * @see com.liferay.portal.tools.DBBuilder
+	 */
 	@Override
 	public String getPopulateSQL(String databaseName, String sqlContent) {
 		StringBundler populateSqlSB = new StringBundler(5);
@@ -107,6 +110,9 @@ public class OracleDB extends BaseDB {
 		return populateSqlSB.toString();
 	}
 
+	/**
+	 * @see com.liferay.portal.tools.DBBuilder
+	 */
 	@Override
 	public String getRecreateSQL(String databaseName) {
 		StringBundler recreateSqlSB = new StringBundler(4);
