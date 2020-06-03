@@ -71,7 +71,7 @@ public class SQLServerDB extends BaseDB {
 			return indexes;
 		}
 
-		StringBundler dbIndexesSB = new StringBundler(5);
+		StringBundler dbIndexesSB = new StringBundler(6);
 
 		dbIndexesSB.append("select sys.tables.name as table_name, ");
 		dbIndexesSB.append("sys.indexes.name as index_name, is_unique from ");
