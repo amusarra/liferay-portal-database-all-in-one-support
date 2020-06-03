@@ -32,8 +32,8 @@
   </distributionManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <liferay.portal.impl.version>5.1.6</liferay.portal.impl.version>
-    <liferay.portal.kernel.version>5.4.0</liferay.portal.kernel.version>
+    <liferay.portal.impl.version>5.9.0</liferay.portal.impl.version>
+    <liferay.portal.kernel.version>6.10.1</liferay.portal.kernel.version>
     <liferay.petra.lang.version>4.0.1</liferay.petra.lang.version>
     <liferay.petra.string.version>4.0.1</liferay.petra.string.version>
   </properties>
