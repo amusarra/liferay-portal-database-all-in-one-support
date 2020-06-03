@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,16 +21,16 @@ import com.liferay.portal.kernel.dao.db.DBType;
 /**
  * @author Antonio Musarra
  */
- public class SQLServerDBFactory extends BaseDBFactory {
+public class SQLServerDBFactory extends BaseDBFactory {
 
- 	@Override
- 	public DB doCreate(int dbMajorVersion, int dbMinorVersion) {
- 		return new SQLServerDB(dbMajorVersion, dbMinorVersion);
- 	}
+	@Override
+	public DB doCreate(int dbMajorVersion, int dbMinorVersion) {
+		return new SQLServerDB(dbMajorVersion, dbMinorVersion);
+	}
 
- 	@Override
- 	public DBType getDBType() {
- 		return DBType.SQLSERVER;
- 	}
+	@Override
+	public DBType getDBType() {
+		return DBType.SQLSERVER;
+	}
 
- }
+}
