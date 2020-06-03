@@ -1,5 +1,5 @@
 # kickstart travis.
 language: java
 jdk:
-  - openjdk8
+    - openjdk8
 install: mvn clean package
