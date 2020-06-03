@@ -1,5 +1,5 @@
 Bundle-Copyright: (c) 2020 Antonio Musarra's Blog
-Bundle-Description: This is the driver implementation to add support for Oracle, SQL Server and DB2 database for Liferay 7,7.1,7.2 and 7.3 CE
+Bundle-Description: This is the driver implementation to add support for Oracle and SQL Server database for Liferay 7,7.1,7.2 and 7.3 CE
 Bundle-DocURL: https://www.dontesta.it/liferay-db
 Bundle-License: https://www.dontesta.it/liferay-db/license/v1.0
 Bundle-Name: Liferay Portal Database All In One Support
