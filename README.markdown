@@ -14,12 +14,13 @@ The Liferay 7 CE no more support OOTB (Out Of The Box):
 * MultiVM Cache
 * Oracle Database, Microsoft SQL Server, IBM DB2, Sybase DB
 
-This project add support to the [Oracle Database](https://www.oracle.com/database/), [SQL Server](https://www.microsoft.com/sql-server/sql-server-2019) and [IBM DB2](https://www.ibm.com/products/db2-database) database.
+This project add support to the [Oracle Database](https://www.oracle.com/database/), [SQL Server](https://www.microsoft.com/sql-server/sql-server-2019).
 Liferay has performed refactorting the code so that it is possible and easy
 to add support for databases no longer supported OOTB (out-of-the-box)
 
-**Attention update:** The last version (1.2.0) of the driver works with the
-Liferay 7.3.0 CE GA1.
+**Attention update**
+1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2.
+2. From version 1.2.1 removed driver for DB2 Database. 
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
@@ -40,8 +41,8 @@ system without changing the source. It includes interfaces, classes or methods
 that the user extends or implements in order to obtain a certain functionality.
 
 In short we must:
-* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java). Implementation class inside this project is **OracleDBFactory.java**
-* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.2.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java) for Oracle DB. Implementation class inside this project is **OracleDB.java**
+* Implement the SPI interface [com.liferay.portal.kernel.dao.db.DBFactory](https://github.com/liferay/liferay-portal/blob/7.3.1-ga2/portal-kernel/src/com/liferay/portal/kernel/dao/db/DBFactory.java). Implementation class inside this project is **OracleDBFactory.java**
+* Implement the abstract class [com.liferay.portal.dao.db.BaseDB](https://github.com/liferay/liferay-portal/blob/7.3.1-ga2/portal-impl/src/com/liferay/portal/dao/db/BaseDB.java) for Oracle DB. Implementation class inside this project is **OracleDB.java**
 
 The following code shows how service providers are loaded via SPI.
 
@@ -73,25 +74,20 @@ FQCN of this class:
 
 1. [it.dontesta.labs.liferay.portal.dao.db.OracleDBFactory](https://github.com/amusarra/liferay-portal-database-all-in-one-support/blob/master/src/main/java/it/dontesta/labs/liferay/portal/dao/db/OracleDBFactory.java)
 2. [it.dontesta.labs.liferay.portal.dao.db.SQLServerDBFactory](https://github.com/amusarra/liferay-portal-database-all-in-one-support/blob/master/src/main/java/it/dontesta/labs/liferay/portal/dao/db/SQLServerDBFactory.java)
-3. [it.dontesta.labs.liferay.portal.dao.db.DB2DBFactory](https://github.com/amusarra/liferay-portal-database-all-in-one-support/blob/master/src/main/java/it/dontesta/labs/liferay/portal/dao/db/DB2DBFactory.java)
 
 The class diagrams of each database driver are shown below.
 
-<img src="docs/images/ClassDiagram_SQLServer_1.png" alt="ClassDiagram_SQLServer_1" style="zoom: 67%;" />
+![Class Diagram SQLServer](./docs/images/ClassDiagram_SQLServer_1.png)
 
 Figure 1 - Class diagram of the SQLServerDB driver
 
-<img src="docs/images/ClassDiagram_DB2DB_1.png" alt="ClassDiagram_DB2DB_1" style="zoom: 67%;" />
+![Class Diagram OracleDB](./docs/images/ClassDiagram_OracleDB_1.png)
 
-Figure 2 - Class diagram of the DB2DB driver
-
-<img src="docs/images/ClassDiagram_OracleDB_1.png" alt="ClassDiagram_OracleDB_1" style="zoom:67%;" />
-
-Figure 3 - Class diagram of the OracleDB driver
+Figure 2 - Class diagram of the OracleDB driver
 
 ## 2. How-To Build the project from sources
 Requirements for build the project
-1. Sun/Oracle JDK 1.8
+1. Sun/Oracle JDK 1.8/JDK 11
 2. Maven 3.x (for build project)
 
 The driver that adds support for *Oracle*, SQLServer and *DB2* database
@@ -176,7 +172,6 @@ JVM. Here are the links to the resources to download the JDBC driver.
 
 1. [Oracle JDBC Drivers](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)
 2. [Microsoft SQL Server JDBC Drivers and support matrix](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server-support-matrix?view=sql-server-ver15)
-3. [IBM DB2 Database](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads)
 
 The following documents (see database section) provide details of the
 configurations that are certified by Liferay. You can see the complete
