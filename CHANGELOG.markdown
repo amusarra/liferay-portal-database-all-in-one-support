@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Added support for Liferay 7.3.1 GA2
 - Added support for Liferay 7.3.2 GA3
+- Added support for Liferay 7.4.0 GA1
+- Added support for Liferay 7.4.1 GA2
+- Added support for Liferay 7.4.2 GA3
 
 ## [1.2.0] - 2020-06-01
 ### Added

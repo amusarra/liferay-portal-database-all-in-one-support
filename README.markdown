@@ -1,4 +1,4 @@
-# Liferay Portal CE 7, 7.1, 7.2 and 7.3 Database All In One Support
+# Liferay Portal CE 7, 7.1, 7.2, 7.3 and 7.4 Database All In One Support
 [![Antonio Musarra's Blog](https://img.shields.io/badge/maintainer-Antonio_Musarra's_Blog-purple.svg?colorB=6e60cc)](https://www.dontesta.it)
 [![Twitter Follow](https://img.shields.io/twitter/follow/antonio_musarra.svg?style=social&label=%40antonio_musarra%20on%20Twitter&style=plastic)](https://twitter.com/antonio_musarra) ![travis ci](https://travis-ci.org/amusarra/liferay-portal-database-all-in-one-support.svg?branch=master)
 
@@ -19,12 +19,12 @@ Liferay has performed refactorting the code so that it is possible and easy
 to add support for databases no longer supported OOTB (out-of-the-box)
 
 **Attention update**
-1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2 and 7.3.2 GA3.
+1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2, 7.3.2 GA3, 7.4 GA1,GA2,GA3
 2. From version 1.2.1 **removed driver for DB2 Database**.
 
 [<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
 
-I invite you to read the article [How to build a Docker Liferay 7.2 image with the Oracle Database support](https://www.dontesta.it/en/2019/08/21/how-to-build-a-docker-liferay-7-2-image-with-the-oracle-database-support/) which
+I invite you to read the article [How to build a Docker Liferay 7.2 image with the Oracle Database support](https://www.dontesta.it/en/2019/08/21/how-to-build-a-docker-liferay-7-2-image-with-the-oracle-database-support/) and the [How to setup Docker container Oracle Database 19c for Liferay Development Environment](https://www.dontesta.it/en/2020/03/15/how-to-setup-docker-container-oracle-database-19c-for-liferay-development-environment/) which
 may be interesting for you.
 
 In the following video, I will guide you step-by-step instructions on how to
@@ -112,7 +112,19 @@ The build process create the jar
 `liferay-portal-database-all-in-one-support-${version}.jar` inside the (maven)
 target directory.
 
-## 3. How-To Configure Liferay Portal
+## 3. Installation notes for Liferay 7.4 GA3
+Since version 7.4 GA3 of Liferay, the so-called [Shielded Container](https://issues.liferay.com/browse/LPS-104371) 
+mechanism has been introduced, so the directory on which to install the JDBC 
+driver and the driver of this project changes.
+
+In the case of the Tomcat bundle, the new directory is: 
+**tomcat-9.0.43/webapps/ROOT/WEB-INF/shielded-container-lib**
+
+![New directory installation to db driver for Liferay 7.4 GA3](./docs/images/new_location_to_install_driver.png)
+
+Figure 3 - New directory installation to db driver for Liferay 7.4 GA3
+
+## 4. How-To Configure Liferay Portal
 
 Below you can see the `portal-ext.properties`. In the sample file are shown JDBC
 configurations sample for Oracle, SQL Server, and DB2.
@@ -179,6 +191,14 @@ documents on [Liferay Portal](https://web.liferay.com/it/services/support/compat
 
 ![Liferay_72_Compatibility_Matrix_Database](docs/images/Liferay_72_Compatibility_Matrix_Database.png)
 
+Figure 4 - Liferay_72_Compatibility_Matrix_Database
+
+The figure below shows an example of connection to the Liferay 7.4 GA3 Oracle database.
+
+![New directory installation to db driver for Liferay 7.4 GA3](./docs/images/view_database_oracle_19c_liferay_74_ga3.png)
+
+Figure 5 - New directory installation to db driver for Liferay 7.4 GA3
+
 ## 4. Other useful resources
 
 1. [How to build a Docker Liferay 7.2 image with the Oracle Database support](https://www.dontesta.it/en/2019/08/21/how-to-build-a-docker-liferay-7-2-image-with-the-oracle-database-support/)
@@ -188,3 +208,4 @@ documents on [Liferay Portal](https://web.liferay.com/it/services/support/compat
 5. [Liferay 7 Wildfly: How to add support for Oracle DB](https://www.youtube.com/watch?v=7fojCjko7Ac) (video on Antonio Musarra's Blog YouTube Channel)
 6. [Liferay 7 Community Edition GA5 & Oracle 12c via Docker Composer](https://www.youtube.com/watch?v=yLVCEl8L8cU) (video on Antonio Musarra's Blog YouTube Channel)
 7. [Come installare Liferay 7 su JBoss EAP con il supporto per Oracle Database](https://www.youtube.com/watch?v=QaVaP89yWiM&t=848s) (video on Antonio Musarra's Blog YouTube Channel)
+8. [How to setup Docker container Oracle Database 19c for Liferay Development Environment](https://www.dontesta.it/en/2020/03/15/how-to-setup-docker-container-oracle-database-19c-for-liferay-development-environment/)
