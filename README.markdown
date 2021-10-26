@@ -35,7 +35,7 @@ version of **Wildfly**.
 
 ## 1. Introduction
 To extend support to other databases, Liferay has decided to refactory code to
-use Java [*SPI (Service Provider Interface)*](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html).
+use Java. Invite you to read [*SPI (Service Provider Interface)*](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html) and [*Creating Extensible Applications (The Java™ Tutorials > The Extension Mechanism > Creating and Using Extensions)*](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html)
 **SPI** is the mechanism that allows you to extend/change the behavior within a
 system without changing the source. It includes interfaces, classes or methods
 that the user extends or implements in order to obtain a certain functionality.
