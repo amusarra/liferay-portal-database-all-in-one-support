@@ -1,6 +1,6 @@
 # Liferay Portal CE 7, 7.1, 7.2, 7.3 and 7.4 Database All In One Support
 [![Antonio Musarra's Blog](https://img.shields.io/badge/maintainer-Antonio_Musarra's_Blog-purple.svg?colorB=6e60cc)](https://www.dontesta.it)
-[![Twitter Follow](https://img.shields.io/twitter/follow/antonio_musarra.svg?style=social&label=%40antonio_musarra%20on%20Twitter&style=plastic)](https://twitter.com/antonio_musarra) ![travis ci](https://travis-ci.org/amusarra/liferay-portal-database-all-in-one-support.svg?branch=master)
+[![Twitter Follow](https://img.shields.io/twitter/follow/antonio_musarra.svg?style=social&label=%40antonio_musarra%20on%20Twitter&style=plastic)](https://twitter.com/antonio_musarra)
 
 Those who follow Liferay is aware of the fact that the Community Edition
 version 7 of Liferay, were eliminated quite a bit of components App Server,
@@ -22,7 +22,7 @@ to add support for databases no longer supported OOTB (out-of-the-box)
 1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2, 7.3.2 GA3, 7.4 GA1,GA2,GA3
 2. From version 1.2.1 **removed driver for DB2 Database**.
 
-[<img src="https://www.dontesta.it/wp-content/uploads/2017/04/PayPalMeAntonioMusarra.png">](https://paypal.me/AntonioMusarra)
+[Fai una donazione su PayPal a Antonio Musarra (author)](https://paypal.me/AntonioMusarra)
 
 I invite you to read the article [How to build a Docker Liferay 7.2 image with the Oracle Database support](https://www.dontesta.it/en/2019/08/21/how-to-build-a-docker-liferay-7-2-image-with-the-oracle-database-support/) and the [How to setup Docker container Oracle Database 19c for Liferay Development Environment](https://www.dontesta.it/en/2020/03/15/how-to-setup-docker-container-oracle-database-19c-for-liferay-development-environment/) which
 may be interesting for you.
@@ -197,7 +197,7 @@ The figure below shows an example of connection to the Liferay 7.4 GA3 Oracle da
 
 ![New directory installation to db driver for Liferay 7.4 GA3](./docs/images/view_database_oracle_19c_liferay_74_ga3.png)
 
-Figure 5 - New directory installation to db driver for Liferay 7.4 GA3
+Figure 5 - Connection to Liferay 7.4 GA3
 
 ## 4. Other useful resources
 
@@ -209,3 +209,20 @@ Figure 5 - New directory installation to db driver for Liferay 7.4 GA3
 6. [Liferay 7 Community Edition GA5 & Oracle 12c via Docker Composer](https://www.youtube.com/watch?v=yLVCEl8L8cU) (video on Antonio Musarra's Blog YouTube Channel)
 7. [Come installare Liferay 7 su JBoss EAP con il supporto per Oracle Database](https://www.youtube.com/watch?v=QaVaP89yWiM&t=848s) (video on Antonio Musarra's Blog YouTube Channel)
 8. [How to setup Docker container Oracle Database 19c for Liferay Development Environment](https://www.dontesta.it/en/2020/03/15/how-to-setup-docker-container-oracle-database-19c-for-liferay-development-environment/)
+
+## Liferay Portal Database All-In-One License
+SPDX-License-Identifier: LGPL-2.1-or-later
+
+Liferay Portal Database All-In-One is free software: you can redistribute it 
+and/or modify it under the terms of the GNU Lesser General Public License as 
+published by the Free Software Foundation, either version 2.1 of the License, 
+or (at your option) any later version.
+
+Liferay Portal Database All-In-One is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser 
+General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License 
+along with Liferay Portal Community Edition. If not, 
+see https://www.gnu.org/licenses/
