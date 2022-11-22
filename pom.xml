@@ -7,10 +7,10 @@
 	<version>1.2.2-SNAPSHOT</version>
 	<name>Liferay Portal Database All In One Support</name>
 	<description>This is the driver implementation to add support for Oracle and
-		SQL Server database for Liferay 7,7.1,7.2 and 7.3 CE
+		SQL Server database for Liferay 7,7.1,7.2,7.3 and 7.4 CE
 	</description>
 	<url>https://www.dontesta.it</url>
-	<inceptionYear>2020</inceptionYear>
+	<inceptionYear>2022</inceptionYear>
 	<licenses>
 		<license>
 			<name>GNU Lesser General Public License, version 2.1 (LGPLv2.1)
@@ -36,10 +36,8 @@
 	</distributionManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<liferay.portal.impl.version>5.9.0</liferay.portal.impl.version>
-		<liferay.portal.kernel.version>6.10.1</liferay.portal.kernel.version>
-		<liferay.petra.lang.version>4.0.1</liferay.petra.lang.version>
-		<liferay.petra.string.version>4.0.1</liferay.petra.string.version>
+		<liferay.portal.release.api>7.4.3.51-ga51</liferay.portal.release.api>
+		<liferay.portal.impl.version>59.0.0</liferay.portal.impl.version>
 	</properties>
 	<developers>
 		<developer>
@@ -57,27 +55,15 @@
 	</developers>
 	<dependencies>
 		<dependency>
-			<groupId>com.liferay</groupId>
-			<artifactId>com.liferay.petra.lang</artifactId>
-			<version>${liferay.petra.lang.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay</groupId>
-			<artifactId>com.liferay.petra.string</artifactId>
-			<version>${liferay.petra.string.version}</version>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>release.portal.api</artifactId>
+			<version>${liferay.portal.release.api}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.impl</artifactId>
 			<version>${liferay.portal.impl.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.portal.kernel</artifactId>
-			<version>${liferay.portal.kernel.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
