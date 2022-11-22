@@ -113,11 +113,11 @@ The build process create the jar
 target directory.
 
 ## 3. Installation notes for Liferay 7.4 GA3
-Since version 7.4 GA3 of Liferay, the so-called [Shielded Container](https://issues.liferay.com/browse/LPS-104371) 
-mechanism has been introduced, so the directory on which to install the JDBC 
+Since version 7.4 GA3 of Liferay, the so-called [Shielded Container](https://issues.liferay.com/browse/LPS-104371)
+mechanism has been introduced, so the directory on which to install the JDBC
 driver and the driver of this project changes.
 
-In the case of the Tomcat bundle, the new directory is: 
+In the case of the Tomcat bundle, the new directory is:
 **tomcat-9.0.43/webapps/ROOT/WEB-INF/shielded-container-lib**
 
 ![New directory installation to db driver for Liferay 7.4 GA3](./docs/images/new_location_to_install_driver.png)
