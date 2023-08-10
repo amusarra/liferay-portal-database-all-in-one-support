@@ -164,6 +164,30 @@ public class SQLServerDB extends BaseDB {
 	}
 
 	@Override
+	public void removePrimaryKey(Connection connection, String tableName)
+		throws Exception {
+
+		DatabaseMetaData databaseMetaData = connection.getMetaData();
+		DBInspector dbInspector = new DBInspector(connection);
+
+		String normalizedTableName = dbInspector.normalizeName(
+			tableName, databaseMetaData);
+
+		Statement stmt = connection.createStatement();
+		
+		String query = "SELECT name FROM sys.key_constraints WHERE type = \'PK\' AND OBJECT_NAME(parent_object_id) = \'" + tableName +"\'";
+		
+		ResultSet rs = stmt.executeQuery(query);
+
+		if(rs.next())
+		{
+			String pkName = rs.getString("name");
+			query = StringBundler.concat("alter table ", normalizedTableName, " drop CONSTRAINT " + pkName);
+			runSQL(query);				
+		}
+	}
+	
+	@Override
 	protected String reword(String data) throws IOException {
 		try (UnsyncBufferedReader unsyncBufferedReader =
 				new UnsyncBufferedReader(new UnsyncStringReader(data))) {
