@@ -16,13 +16,13 @@ package it.dontesta.labs.liferay.portal.dao.db;
 
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.dao.db.BaseDB;
+import com.liferay.portal.kernel.dao.db.DBInspector;
 import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.dao.db.Index;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.kernel.dao.db.DBInspector;
 
 import java.io.IOException;
 
@@ -32,7 +32,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.sql.Statement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -156,16 +155,6 @@ public class SQLServerDB extends BaseDB {
 	}
 
 	@Override
-	protected int[] getSQLTypes() {
-		return _SQL_TYPES;
-	}
-
-	@Override
-	protected String[] getTemplate() {
-		return _SQL_SERVER;
-	}
-
-	@Override
 	public void removePrimaryKey(Connection connection, String tableName)
 		throws Exception {
 
@@ -175,25 +164,65 @@ public class SQLServerDB extends BaseDB {
 		String normalizedTableName = dbInspector.normalizeName(
 			tableName, databaseMetaData);
 
-		Statement stmt = connection.createStatement();
+		// 1. Check if table exists
 
-		String query =
-			"SELECT name FROM sys.key_constraints WHERE type = \'PK\' AND OBJECT_NAME(parent_object_id) = \'" +
-				tableName + "\'";
+		if (!dbInspector.hasTable(normalizedTableName)) {
+			throw new SQLException(
+				StringBundler.concat(
+					"Table ", normalizedTableName, " does not exist"));
+		}
 
-		ResultSet rs = stmt.executeQuery(query);
+		String primaryKeyConstraintName = null;
 
-		if (rs.next()) {
-			String pkName = rs.getString("name");
+		// 2. Execute query to get primary key constraint name
 
-			query = StringBundler.concat(
-				"alter table ", normalizedTableName,
-				" drop CONSTRAINT " + pkName);
-			runSQL(query);
+		try (PreparedStatement preparedStatement = connection.prepareStatement(
+				"select name from sys.key_constraints where type = 'PK' and " +
+					"OBJECT_NAME(parent_object_id) = ?")) {
+
+			preparedStatement.setString(1, normalizedTableName);
+
+			try (ResultSet resultSet = preparedStatement.executeQuery()) {
+				if (resultSet.next()) {
+					primaryKeyConstraintName = resultSet.getString("name");
+				}
+			}
+		}
+
+		if (primaryKeyConstraintName == null) {
+			throw new SQLException(
+				String.format(
+					"No primary key constraint found for %s",
+					normalizedTableName));
+		}
+
+		// 3. Drop primary key constraint if exists
+
+		if (dbInspector.hasIndex(
+				normalizedTableName, primaryKeyConstraintName)) {
+
+			runSQL(
+				StringBundler.concat(
+					"alter table ", normalizedTableName, " drop constraint ",
+					primaryKeyConstraintName));
+		}
+		else {
+			throw new SQLException(
+				StringBundler.concat(
+					"Primary key with name ", primaryKeyConstraintName,
+					" does not exist"));
 		}
 	}
 
+	@Override
+	protected int[] getSQLTypes() {
+		return _SQL_TYPES;
+	}
 
+	@Override
+	protected String[] getTemplate() {
+		return _SQL_SERVER;
+	}
 
 	@Override
 	protected String reword(String data) throws IOException {
