@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.dao.db.DBInspector;
 
 import java.io.IOException;
 
@@ -31,6 +32,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.sql.Statement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,6 +164,36 @@ public class SQLServerDB extends BaseDB {
 	protected String[] getTemplate() {
 		return _SQL_SERVER;
 	}
+
+	@Override
+	public void removePrimaryKey(Connection connection, String tableName)
+		throws Exception {
+
+		DatabaseMetaData databaseMetaData = connection.getMetaData();
+		DBInspector dbInspector = new DBInspector(connection);
+
+		String normalizedTableName = dbInspector.normalizeName(
+			tableName, databaseMetaData);
+
+		Statement stmt = connection.createStatement();
+
+		String query =
+			"SELECT name FROM sys.key_constraints WHERE type = \'PK\' AND OBJECT_NAME(parent_object_id) = \'" +
+				tableName + "\'";
+
+		ResultSet rs = stmt.executeQuery(query);
+
+		if (rs.next()) {
+			String pkName = rs.getString("name");
+
+			query = StringBundler.concat(
+				"alter table ", normalizedTableName,
+				" drop CONSTRAINT " + pkName);
+			runSQL(query);
+		}
+	}
+
+
 
 	@Override
 	protected String reword(String data) throws IOException {
