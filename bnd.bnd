@@ -1,11 +1,11 @@
-Bundle-Copyright: (c) 2020 Antonio Musarra's Blog
-Bundle-Description: This is the driver implementation to add support for Oracle and SQL Server database for Liferay 7,7.1,7.2 and 7.3 CE
+Bundle-Copyright: (c) 2023 Antonio Musarra's Blog
+Bundle-Description: This is the driver implementation to add support for Oracle and SQL Server database for Liferay 7,7.1,7.2,7.3 and 7.4 CE
 Bundle-DocURL: https://www.dontesta.it/liferay-db
 Bundle-License: https://www.dontesta.it/liferay-db/license/v1.0
 Bundle-Name: Liferay Portal Database All In One Support
 Bundle-SymbolicName: it.dontesta.labs.liferay.portal.dao.db
 Bundle-Vendor: Antonio Musarra's Blog
-Bundle-Version: 1.2.1
+Bundle-Version: 1.2.2
 Export-Package: it.dontesta.labs.liferay.portal.dao.db
 Provide-Capability:\
 	osgi.serviceloader;\
