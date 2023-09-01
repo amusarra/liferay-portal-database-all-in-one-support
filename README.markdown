@@ -18,9 +18,7 @@ This project add support to the [Oracle Database](https://www.oracle.com/databas
 Liferay has performed refactorting the code so that it is possible and easy
 to add support for databases no longer supported OOTB (out-of-the-box)
 
-**Attention update**
-1. The last version 1.2.1 of the driver works with the Liferay 7.3.1 CE GA2, 7.3.2 GA3, 7.4 GA1,GA2,GA3
-2. From version 1.2.1 **removed driver for DB2 Database**.
+You can refer to the [change log](CHANGELOG.markdown) for more information about the changes made to.
 
 [Fai una donazione su PayPal a Antonio Musarra (author)](https://paypal.me/AntonioMusarra)
 
